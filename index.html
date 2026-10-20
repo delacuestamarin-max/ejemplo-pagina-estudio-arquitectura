@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudio Llano — Arquitectura residencial</title>
+<meta name="description" content="Estudio de arquitectura residencial. Diseño, remodelación y dirección de obra.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#1C1A17;
+    --ink-soft:#6B6660;
+    --paper:#FBFAF8;
+    --line:rgba(28,26,23,.14);
+    --clay:#B2572C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+  @media(max-width:600px){.wrap{padding:0 22px}}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
+  .logo{font-family:'Fraunces',serif;font-weight:500;font-size:21px;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:36px;font-size:13.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.02em;text-transform:uppercase}
+  .nav-links a:hover{color:var(--ink)}
+  @media(max-width:760px){.nav-links{display:none}}
+  .nav-cta{border:1px solid var(--ink);padding:10px 20px;font-size:13px;font-weight:500}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+  /* ---- Hero: specimen-style, asymmetric ---- */
+  .hero{padding:110px 0 90px;border-bottom:1px solid var(--line)}
+  .hero-top{display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:10px}
+  .hero-num{font-size:13px;color:var(--ink-soft);font-weight:500;padding-top:14px}
+  h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,6.6vw,86px);line-height:0.98;letter-spacing:-.02em}
+  h1 em{font-style:italic;color:var(--clay)}
+  .hero-sub-row{display:grid;grid-template-columns:40px 1fr auto;gap:24px;align-items:end;margin-top:36px}
+  @media(max-width:700px){.hero-sub-row{grid-template-columns:1fr;gap:16px}}
+  .hero-sub-row p{font-size:17px;color:var(--ink-soft);max-width:44ch;line-height:1.6}
+  .hero-meta{text-align:right;font-size:13.5px;color:var(--ink-soft);line-height:1.8}
+  @media(max-width:700px){.hero-meta{text-align:left}}
+
+  /* ---- About / philosophy ---- */
+  .section{padding:90px 0;border-bottom:1px solid var(--line)}
+  .split{display:grid;grid-template-columns:1fr 1.3fr;gap:64px}
+  @media(max-width:800px){.split{grid-template-columns:1fr;gap:32px}}
+  .label{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:18px}
+  .split h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.2;margin-bottom:20px}
+  .split p{font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px}
+
+  /* ---- Services as numbered rows ---- */
+  .svc-row{display:grid;grid-template-columns:80px 1fr 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
+  .svc-row:last-child{border-bottom:1px solid var(--line)}
+  @media(max-width:700px){.svc-row{grid-template-columns:50px 1fr}.svc-row .svc-desc{grid-column:2}}
+  .svc-n{font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft)}
+  .svc-title{font-family:'Fraunces',serif;font-size:23px;font-weight:400}
+  .svc-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.6;align-self:center}
+
+  /* ---- Projects grid: asymmetric spans ---- */
+  .proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+  @media(max-width:760px){.proj-grid{grid-template-columns:1fr 1fr}}
+  .proj{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end;padding:18px}
+  .proj.span4{grid-column:span 4}
+  .proj.span2{grid-column:span 2}
+  @media(max-width:760px){.proj.span4,.proj.span2{grid-column:span 2}}
+  .proj.p1{background:linear-gradient(150deg,#D9CFC2,#AFA190)}
+  .proj.p2{background:linear-gradient(150deg,#C9B8A8,#8E7A68)}
+  .proj.p3{background:linear-gradient(150deg,#E4DCCD,#C2B29C)}
+  .proj.p4{background:linear-gradient(150deg,#BFAE9C,#7C6A58)}
+  .proj-tag{background:rgba(27,25,22,.55);backdrop-filter:blur(3px);color:#fff;font-size:13px;padding:8px 14px}
+
+  /* ---- Process strip ---- */
+  .process-strip{display:flex;flex-wrap:wrap;gap:0}
+  .p-item{flex:1;min-width:220px;padding:30px 28px;border-right:1px solid var(--line)}
+  .p-item:last-child{border-right:none}
+  @media(max-width:700px){.p-item{border-right:none;border-bottom:1px solid var(--line)}}
+  .p-item .pn{font-family:'Fraunces',serif;font-style:italic;font-size:30px;color:var(--clay);margin-bottom:10px}
+  .p-item h3{font-size:15.5px;font-weight:600;margin-bottom:8px}
+  .p-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+
+  /* ---- CTA ---- */
+  .cta{padding:100px 0;text-align:center}
+  .cta h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,4vw,46px);max-width:700px;margin:0 auto 24px;line-height:1.15}
+  .cta h2 em{font-style:italic;color:var(--clay)}
+  .btn-line{display:inline-flex;align-items:center;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:6px;font-weight:600;font-size:17px}
+  .btn-line:hover{border-color:var(--clay);color:var(--clay)}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-soft)}
+
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:80;background:#25D366;color:#fff;
+    width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 28px -10px rgba(0,0,0,.4);font-size:27px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">Estudio Llano</div>
+    <div class="nav-links">
+      <a href="#estudio">Estudio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F" target="_blank" rel="noopener">Conversemos</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-num">01</div>
+      <h1>Arquitectura que <em>envejece bien</em>.</h1>
+    </div>
+    <div class="hero-sub-row">
+      <div></div>
+      <p>Diseñamos casas y remodelaciones pensadas para durar: materiales nobles, luz natural y espacios que se adaptan a cómo realmente vives.</p>
+      <div class="hero-meta">Santiago, Chile<br>Est. 2014</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="estudio">
+  <div class="wrap split">
+    <div>
+      <div class="label">El estudio</div>
+      <h2>Diez años diseñando<br>espacios habitables.</h2>
+    </div>
+    <div>
+      <p>Estudio Llano nació de una convicción simple: la buena arquitectura no necesita gritar. Trabajamos de la mano con cada familia para entender cómo vive, qué necesita y qué espacios la hacen sentir en casa.</p>
+      <p>Cada proyecto pasa por un proceso cuidadoso de diseño, desarrollo de planos y acompañamiento en obra — para que lo que se dibuja sea exactamente lo que se construye.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicios">
+  <div class="wrap">
+    <div class="label" style="margin-bottom:8px">Servicios</div>
+    <div class="svc-row">
+      <div class="svc-n">01</div>
+      <div class="svc-title">Diseño residencial</div>
+      <div class="svc-desc">Proyectos de arquitectura a medida, desde el anteproyecto hasta los planos de construcción.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">02</div>
+      <div class="svc-title">Remodelación</div>
+      <div class="svc-desc">Transformamos espacios existentes sin perder el carácter de la construcción original.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">03</div>
+      <div class="svc-title">Dirección de obra</div>
+      <div class="svc-desc">Acompañamos la ejecución en terreno para asegurar que el diseño se respete al detalle.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proyectos">
+  <div class="wrap">
+    <div class="label" style="margin-bottom:24px">Proyectos seleccionados</div>
+    <div class="proj-grid">
+      <div class="proj p1 span4"><span class="proj-tag">Casa Los Aromos — La Reina</span></div>
+      <div class="proj p2 span2"><span class="proj-tag">Depto. Lastarria</span></div>
+      <div class="proj p3 span2"><span class="proj-tag">Casa Patio — Peñalolén</span></div>
+      <div class="proj p4 span4"><span class="proj-tag">Remodelación Ñuñoa</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-bottom:none;padding-bottom:0">
+  <div class="wrap">
+    <div class="label" style="margin-bottom:8px">Cómo trabajamos</div>
+  </div>
+  <div class="process-strip wrap" style="display:flex;border-top:1px solid var(--line)">
+    <div class="p-item"><div class="pn">i.</div><h3>Primera conversación</h3><p>Escuchamos tu idea, el terreno y el presupuesto.</p></div>
+    <div class="p-item"><div class="pn">ii.</div><h3>Anteproyecto</h3><p>Primeras propuestas de diseño y distribución.</p></div>
+    <div class="p-item"><div class="pn">iii.</div><h3>Desarrollo</h3><p>Planos técnicos listos para construcción.</p></div>
+    <div class="p-item"><div class="pn">iv.</div><h3>Obra</h3><p>Acompañamiento hasta la entrega final.</p></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>¿Tienes un proyecto en mente?<br><em>Conversemos sobre tu casa.</em></h2>
+    <a class="btn-line" href="https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© Estudio Llano — ejemplo de página web</span>
+  <span>Santiago, Chile</span>
+</footer>
+
+<a class="wa-float" href="https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
+
+</body>
+</html>
