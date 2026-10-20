@@ -6,14 +6,14 @@
 <title>Estudio Llano — Arquitectura residencial</title>
 <meta name="description" content="Estudio de arquitectura residencial. Diseño, remodelación y dirección de obra.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Inter:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
   :root{
-    --ink:#1C1A17;
-    --ink-soft:#6B6660;
-    --paper:#FBFAF8;
-    --line:rgba(28,26,23,.14);
-    --clay:#B2572C;
+    --ink:#15181B;
+    --ink-soft:#656C72;
+    --paper:#F5F5F3;
+    --line:rgba(21,24,27,.14);
+    --clay:#2756A8;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -24,7 +24,7 @@
 
   header{position:sticky;top:0;z-index:50;background:rgba(251,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
-  .logo{font-family:'Fraunces',serif;font-weight:500;font-size:21px;letter-spacing:-.01em}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:21px;letter-spacing:-.01em}
   .nav-links{display:flex;gap:36px;font-size:13.5px;font-weight:500;color:var(--ink-soft);letter-spacing:.02em;text-transform:uppercase}
   .nav-links a:hover{color:var(--ink)}
   @media(max-width:760px){.nav-links{display:none}}
@@ -35,8 +35,8 @@
   .hero{padding:110px 0 90px;border-bottom:1px solid var(--line)}
   .hero-top{display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:10px}
   .hero-num{font-size:13px;color:var(--ink-soft);font-weight:500;padding-top:14px}
-  h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,6.6vw,86px);line-height:0.98;letter-spacing:-.02em}
-  h1 em{font-style:italic;color:var(--clay)}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(40px,6.6vw,86px);line-height:0.98;letter-spacing:-.02em}
+  h1 em{font-style:normal;font-weight:700;color:var(--clay)}
   .hero-sub-row{display:grid;grid-template-columns:40px 1fr auto;gap:24px;align-items:end;margin-top:36px}
   @media(max-width:700px){.hero-sub-row{grid-template-columns:1fr;gap:16px}}
   .hero-sub-row p{font-size:17px;color:var(--ink-soft);max-width:44ch;line-height:1.6}
@@ -48,15 +48,15 @@
   .split{display:grid;grid-template-columns:1fr 1.3fr;gap:64px}
   @media(max-width:800px){.split{grid-template-columns:1fr;gap:32px}}
   .label{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:18px}
-  .split h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(26px,3vw,36px);line-height:1.2;margin-bottom:20px}
+  .split h2{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.2;margin-bottom:20px}
   .split p{font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px}
 
   /* ---- Services as numbered rows ---- */
   .svc-row{display:grid;grid-template-columns:80px 1fr 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
   .svc-row:last-child{border-bottom:1px solid var(--line)}
   @media(max-width:700px){.svc-row{grid-template-columns:50px 1fr}.svc-row .svc-desc{grid-column:2}}
-  .svc-n{font-family:'Fraunces',serif;font-size:15px;color:var(--ink-soft)}
-  .svc-title{font-family:'Fraunces',serif;font-size:23px;font-weight:400}
+  .svc-n{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--ink-soft)}
+  .svc-title{font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:500}
   .svc-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.6;align-self:center}
 
   /* ---- Projects grid: asymmetric spans ---- */
@@ -77,14 +77,14 @@
   .p-item{flex:1;min-width:220px;padding:30px 28px;border-right:1px solid var(--line)}
   .p-item:last-child{border-right:none}
   @media(max-width:700px){.p-item{border-right:none;border-bottom:1px solid var(--line)}}
-  .p-item .pn{font-family:'Fraunces',serif;font-style:italic;font-size:30px;color:var(--clay);margin-bottom:10px}
+  .p-item .pn{font-family:'Space Grotesk',sans-serif;font-style:normal;font-weight:700;font-size:28px;color:var(--clay);margin-bottom:10px}
   .p-item h3{font-size:15.5px;font-weight:600;margin-bottom:8px}
   .p-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
 
   /* ---- CTA ---- */
   .cta{padding:100px 0;text-align:center}
-  .cta h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,4vw,46px);max-width:700px;margin:0 auto 24px;line-height:1.15}
-  .cta h2 em{font-style:italic;color:var(--clay)}
+  .cta h2{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4vw,46px);max-width:700px;margin:0 auto 24px;line-height:1.15}
+  .cta h2 em{font-style:normal;font-weight:700;color:var(--clay)}
   .btn-line{display:inline-flex;align-items:center;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:6px;font-weight:600;font-size:17px}
   .btn-line:hover{border-color:var(--clay);color:var(--clay)}
 
