@@ -11,8 +11,9 @@
   :root{
     --ink:#15181B;
     --ink-soft:#656C72;
-    --paper:#F5F5F3;
-    --line:rgba(21,24,27,.14);
+    --paper:#FFFFFF;
+    --paper-warm:#F7F7F6;
+    --line:rgba(21,24,27,.13);
     --clay:#2756A8;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,17 +32,17 @@
   .nav-cta{border:1px solid var(--ink);padding:10px 20px;font-size:13px;font-weight:500}
   .nav-cta:hover{background:var(--ink);color:var(--paper)}
 
-  /* ---- Hero: specimen-style, asymmetric ---- */
-  .hero{padding:110px 0 90px;border-bottom:1px solid var(--line)}
-  .hero-top{display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:10px}
-  .hero-num{font-size:13px;color:var(--ink-soft);font-weight:500;padding-top:14px}
-  h1{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(40px,6.6vw,86px);line-height:0.98;letter-spacing:-.02em}
-  h1 em{font-style:normal;font-weight:700;color:var(--clay)}
-  .hero-sub-row{display:grid;grid-template-columns:40px 1fr auto;gap:24px;align-items:end;margin-top:36px}
+  /* ---- Hero: text lead, large real photo below ---- */
+  .hero{padding:96px 0 0}
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(38px,6.2vw,80px);line-height:1;letter-spacing:-.02em;max-width:17ch}
+  .hero-sub-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:32px}
   @media(max-width:700px){.hero-sub-row{grid-template-columns:1fr;gap:16px}}
   .hero-sub-row p{font-size:17px;color:var(--ink-soft);max-width:44ch;line-height:1.6}
-  .hero-meta{text-align:right;font-size:13.5px;color:var(--ink-soft);line-height:1.8}
+  .hero-meta{text-align:right;font-size:13.5px;color:var(--ink-soft);line-height:1.8;white-space:nowrap}
   @media(max-width:700px){.hero-meta{text-align:left}}
+
+  .hero-photo{width:100%;margin-top:56px}
+  .hero-photo img{width:100%;height:clamp(320px,52vw,600px);object-fit:cover}
 
   /* ---- About / philosophy ---- */
   .section{padding:90px 0;border-bottom:1px solid var(--line)}
@@ -51,26 +52,22 @@
   .split h2{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.2;margin-bottom:20px}
   .split p{font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px}
 
-  /* ---- Services as numbered rows ---- */
-  .svc-row{display:grid;grid-template-columns:80px 1fr 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
+  /* ---- Services: divided list, no decorative numbering ---- */
+  .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line)}
   .svc-row:last-child{border-bottom:1px solid var(--line)}
-  @media(max-width:700px){.svc-row{grid-template-columns:50px 1fr}.svc-row .svc-desc{grid-column:2}}
-  .svc-n{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--ink-soft)}
+  @media(max-width:700px){.svc-row{grid-template-columns:1fr;gap:10px}}
   .svc-title{font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:500}
   .svc-desc{font-size:14.5px;color:var(--ink-soft);line-height:1.6;align-self:center}
 
-  /* ---- Projects grid: asymmetric spans ---- */
+  /* ---- Projects grid: asymmetric spans, real photography ---- */
   .proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
   @media(max-width:760px){.proj-grid{grid-template-columns:1fr 1fr}}
   .proj{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end;padding:18px}
   .proj.span4{grid-column:span 4}
   .proj.span2{grid-column:span 2}
   @media(max-width:760px){.proj.span4,.proj.span2{grid-column:span 2}}
-  .proj.p1{background:linear-gradient(150deg,#D9CFC2,#AFA190)}
-  .proj.p2{background:linear-gradient(150deg,#C9B8A8,#8E7A68)}
-  .proj.p3{background:linear-gradient(150deg,#E4DCCD,#C2B29C)}
-  .proj.p4{background:linear-gradient(150deg,#BFAE9C,#7C6A58)}
-  .proj-tag{background:rgba(27,25,22,.55);backdrop-filter:blur(3px);color:#fff;font-size:13px;padding:8px 14px}
+  .proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .proj-tag{position:relative;z-index:1;background:rgba(21,24,27,.6);backdrop-filter:blur(3px);color:#fff;font-size:13px;padding:8px 14px}
 
   /* ---- Process strip ---- */
   .process-strip{display:flex;flex-wrap:wrap;gap:0}
@@ -81,10 +78,16 @@
   .p-item h3{font-size:15.5px;font-weight:600;margin-bottom:8px}
   .p-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.6}
 
+  /* ---- About / team ---- */
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+  @media(max-width:800px){.about{grid-template-columns:1fr;gap:32px}}
+  .about-photo img{width:100%;height:440px;object-fit:cover}
+  @media(max-width:800px){.about-photo img{height:320px}}
+  .about-copy p{font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px;max-width:46ch}
+
   /* ---- CTA ---- */
   .cta{padding:100px 0;text-align:center}
   .cta h2{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(28px,4vw,46px);max-width:700px;margin:0 auto 24px;line-height:1.15}
-  .cta h2 em{font-style:normal;font-weight:700;color:var(--clay)}
   .btn-line{display:inline-flex;align-items:center;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:6px;font-weight:600;font-size:17px}
   .btn-line:hover{border-color:var(--clay);color:var(--clay)}
 
@@ -113,15 +116,14 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="hero-top">
-      <div class="hero-num">01</div>
-      <h1>Arquitectura que <em>envejece bien</em>.</h1>
-    </div>
+    <h1>Arquitectura que envejece bien.</h1>
     <div class="hero-sub-row">
-      <div></div>
       <p>Diseñamos casas y remodelaciones pensadas para durar: materiales nobles, luz natural y espacios que se adaptan a cómo realmente vives.</p>
       <div class="hero-meta">Santiago, Chile<br>Est. 2014</div>
     </div>
+  </div>
+  <div class="hero-photo">
+    <img src="img/hero.jpg" alt="Casa de arquitectura moderna, volúmenes blancos bajo cielo despejado">
   </div>
 </section>
 
@@ -142,17 +144,14 @@
   <div class="wrap">
     <div class="label" style="margin-bottom:8px">Servicios</div>
     <div class="svc-row">
-      <div class="svc-n">01</div>
       <div class="svc-title">Diseño residencial</div>
       <div class="svc-desc">Proyectos de arquitectura a medida, desde el anteproyecto hasta los planos de construcción.</div>
     </div>
     <div class="svc-row">
-      <div class="svc-n">02</div>
       <div class="svc-title">Remodelación</div>
       <div class="svc-desc">Transformamos espacios existentes sin perder el carácter de la construcción original.</div>
     </div>
     <div class="svc-row">
-      <div class="svc-n">03</div>
       <div class="svc-title">Dirección de obra</div>
       <div class="svc-desc">Acompañamos la ejecución en terreno para asegurar que el diseño se respete al detalle.</div>
     </div>
@@ -163,10 +162,22 @@
   <div class="wrap">
     <div class="label" style="margin-bottom:24px">Proyectos seleccionados</div>
     <div class="proj-grid">
-      <div class="proj p1 span4"><span class="proj-tag">Casa Los Aromos — La Reina</span></div>
-      <div class="proj p2 span2"><span class="proj-tag">Depto. Lastarria</span></div>
-      <div class="proj p3 span2"><span class="proj-tag">Casa Patio — Peñalolén</span></div>
-      <div class="proj p4 span4"><span class="proj-tag">Remodelación Ñuñoa</span></div>
+      <div class="proj span4"><img src="img/proj-aromos.jpg" alt="Casa Los Aromos, fachada bajo cielo despejado"><span class="proj-tag">Casa Los Aromos — La Reina</span></div>
+      <div class="proj span2"><img src="img/proj-lastarria.jpg" alt="Patio interior de hormigón del Depto. Lastarria"><span class="proj-tag">Depto. Lastarria</span></div>
+      <div class="proj span2"><img src="img/proj-patio.jpg" alt="Muro curvo de hormigón de Casa Patio"><span class="proj-tag">Casa Patio — Peñalolén</span></div>
+      <div class="proj span4"><img src="img/proj-nunoa.jpg" alt="Fachada de ladrillo de la remodelación en Ñuñoa"><span class="proj-tag">Remodelación Ñuñoa</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="equipo">
+  <div class="wrap about">
+    <div class="about-photo">
+      <img src="img/architect.jpg" alt="Arquitecto dibujando un plano en su mesa de trabajo">
+    </div>
+    <div class="about-copy">
+      <h2>Cada plano se dibuja a mano antes de tocar un software.</h2>
+      <p>Creemos que las mejores decisiones de diseño se toman despacio, con lápiz y papel, antes de pasar a los planos técnicos. Así nos aseguramos de entender bien el espacio antes de construirlo.</p>
     </div>
   </div>
 </section>
@@ -185,7 +196,7 @@
 
 <section class="cta">
   <div class="wrap">
-    <h2>¿Tienes un proyecto en mente?<br><em>Conversemos sobre tu casa.</em></h2>
+    <h2>¿Tienes un proyecto en mente?<br>Conversemos sobre tu casa.</h2>
     <a class="btn-line" href="https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F" target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
   </div>
 </section>
